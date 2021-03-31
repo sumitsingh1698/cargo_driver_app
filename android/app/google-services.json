@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "500950440812",
+    "project_id": "car-showroom-96f1f",
+    "storage_bucket": "car-showroom-96f1f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500950440812:android:290092477b587a581cb149",
+        "android_client_info": {
+          "package_name": "com.cargo.driverapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "500950440812-iio34u35dar5lk0ms5ooqqgc68ru90sp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCus7Q11mB4hazmA9yycL8Xdoyu707pYc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "500950440812-iio34u35dar5lk0ms5ooqqgc68ru90sp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
