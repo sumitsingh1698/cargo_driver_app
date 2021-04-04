@@ -36,4 +36,12 @@ class AppStyles {
       color: APP_WHITE,
     );
   }
+
+  static TextStyle linkTextStyle() {
+    return new TextStyle(
+      fontSize: 17,
+      color: APP_BLUE,
+      decoration: TextDecoration.underline,
+    );
+  }
 }

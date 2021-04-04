@@ -1,5 +1,4 @@
 import 'package:crago/constants/strings.dart';
-import 'package:crago/ui/account_ui/login_page.dart';
 import 'package:crago/ui/add_request_page.dart';
 import 'package:crago/ui/history_page.dart';
 import 'package:crago/ui/profile_page.dart';
@@ -18,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _controller = PersistentTabController(initialIndex: 0);
+    _controller = PersistentTabController(initialIndex: 1);
     // _hideNavBar = false;
   }
 
@@ -31,7 +30,7 @@ class _HomePageState extends State<HomePage> {
         screens: [
           HistoryPage(),
           AddRequestPage(),
-          ProfilePage(),
+          ProfilePage(_controller),
         ],
         items: _navBarsItems(),
         confineInSafeArea: true,
@@ -47,24 +46,6 @@ class _HomePageState extends State<HomePage> {
         popActionScreens: PopActionScreensType.once,
         bottomScreenMargin: 0.0,
 
-        onWillPop: (_) async {
-          await showDialog(
-            context: context,
-            useSafeArea: true,
-            builder: (context) => Container(
-              height: 50.0,
-              width: 50.0,
-              color: Colors.white,
-              child: RaisedButton(
-                child: Text("Close"),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ),
-          );
-          return false;
-        },
         // selectedTabScreenContext: (context) {
         //   testContext = context;
         // },
@@ -93,11 +74,11 @@ class _HomePageState extends State<HomePage> {
     return [
       PersistentBottomNavBarItem(
         // routeAndNavigatorSettings: RouteAndNavigatorSettings(
-        //   initialRoute: '/',
+        //   initialRoute: HISTORY_PAGE,
         //   routes: {
-        //     ADD_REQUEST_PAGE: (context) => MainScreen2(),
-        //     PROFILE_PAGE: (context) => MainScreen3(),
-        //     HISTORY_PAGE : (context) =
+        //     HISTORY_PAGE: (context) => HistoryPage(),
+        //     ADD_REQUEST_PAGE: (context) => AddRequestPage(),
+        //     PROFILE_PAGE: (context) => ProfilePage(),
         //   },
         // ),
         icon: Icon(Icons.history),
@@ -111,10 +92,11 @@ class _HomePageState extends State<HomePage> {
         activeColorPrimary: Theme.of(context).primaryColor,
         inactiveColorPrimary: Colors.grey,
         // routeAndNavigatorSettings: RouteAndNavigatorSettings(
-        //   initialRoute: '/',
+        //   initialRoute: ADD_REQUEST_PAGE,
         //   routes: {
-        //     '/first': (context) => MainScreen2(),
-        //     '/second': (context) => MainScreen3(),
+        //     HISTORY_PAGE: (context) => HistoryPage(),
+        //     ADD_REQUEST_PAGE: (context) => AddRequestPage(),
+        //     PROFILE_PAGE: (context) => ProfilePage(),
         //   },
         // ),
         // activeColor: Colors.blueAccent,
@@ -126,13 +108,7 @@ class _HomePageState extends State<HomePage> {
       PersistentBottomNavBarItem(
         icon: Icon(Icons.account_circle_outlined),
         title: (PROFILE),
-        // routeAndNavigatorSettings: RouteAndNavigatorSettings(
-        //   initialRoute: '/',
-        //   routes: {
-        //     '/first': (context) => MainScreen2(),
-        //     '/second': (context) => MainScreen3(),
-        //   },
-        // ),
+
         activeColorPrimary: Theme.of(context).primaryColor,
         inactiveColorPrimary: Colors.grey,
         // activeColor: Colors.teal,

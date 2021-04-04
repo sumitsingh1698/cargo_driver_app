@@ -6,3 +6,4 @@ const APP_WHITE = Colors.white;
 const APP_BLACK = Colors.black;
 
 const APP_GREEN = Colors.green;
+const APP_BLUE = Colors.blue;

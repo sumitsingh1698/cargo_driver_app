@@ -3,7 +3,7 @@ import 'package:crago/constants/decorations.dart';
 import 'package:crago/constants/strings.dart';
 import 'package:crago/constants/styles.dart';
 import 'package:crago/providers/user_provider.dart';
-import 'package:crago/ui/homepage.dart';
+import 'package:crago/ui/home_page.dart';
 import 'package:crago/utils/MyInputField.dart';
 import 'package:crago/utils/common_utils.dart';
 import 'package:crago/utils/myButton.dart';
@@ -181,7 +181,11 @@ class _LoginPageState extends State<LoginPage> {
     await userProvider.verifyOTP(controller.text).then((res) {
       if (res == true)
         Navigator.pushAndRemoveUntil(context,
-            MaterialPageRoute(builder: (context) => Homepage()), (_) => false);
+            MaterialPageRoute(builder: (context) => HomePage()), (_) => false);
     });
   }
+
+  // gotoHomePage() {
+  //   Navigator.pushNamedAndRemoveUntil(context, HOME_PAGE, (_) => false);
+  // }
 }

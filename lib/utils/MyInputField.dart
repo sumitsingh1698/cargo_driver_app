@@ -6,11 +6,13 @@ class MyInputField extends StatelessWidget {
   String title;
   TextInputType keyboardType;
   int maxLength;
+  int minLine;
   MyInputField(
       {this.controller,
       this.title = '',
       this.keyboardType = TextInputType.text,
-      this.maxLength});
+      this.maxLength,
+      this.minLine = 1});
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +21,8 @@ class MyInputField extends StatelessWidget {
         controller: controller,
         keyboardType: keyboardType,
         maxLength: maxLength,
+        minLines: minLine,
+        maxLines: minLine,
         // focusNode: focusNode,
         decoration: InputDecoration(
           hintText: "$title",
